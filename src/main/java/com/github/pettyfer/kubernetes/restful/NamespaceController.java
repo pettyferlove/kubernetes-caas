@@ -1,4 +1,4 @@
-package com.github.pettyfer.kubernetes.controller;
+package com.github.pettyfer.kubernetes.restful;
 
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1DeleteOptions;

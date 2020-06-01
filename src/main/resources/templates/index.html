@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kubernetes控制台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <th:block th:replace="fragments/css/css-import::core-css"/>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">Kubernetes控制台</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item layui-this"><a href="">控制台</a></li>
+        </ul>
+    </div>
+</div>
+<div>
+    <div class="layui-body" id="LAY_app_body">
+        <div class="layui-show">
+            <iframe src="dashboard" frameborder="0" class="layui-iframe"></iframe>
+        </div>
+    </div>
+
+</div>
+</body>
+<th:block th:replace="fragments/js/js-import::core-js"/>
+</html>

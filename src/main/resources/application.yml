@@ -1,1 +1,5 @@
-
+spring:
+  application:
+    name: kubernetes-api-service
+  profiles:
+    active: dev
