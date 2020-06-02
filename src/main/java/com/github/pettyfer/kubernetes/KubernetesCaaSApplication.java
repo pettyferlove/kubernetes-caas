@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Petty
  */
 @SpringBootApplication
-public class KubernetesCaasApplication {
+public class KubernetesCaaSApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(KubernetesCaasApplication.class, args);
+        SpringApplication.run(KubernetesCaaSApplication.class, args);
     }
 
 }

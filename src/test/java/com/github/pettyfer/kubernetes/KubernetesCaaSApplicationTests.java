@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class KubernetesCaasApplicationTests {
+class KubernetesCaaSApplicationTests {
 
     @Test
     void contextLoads() {
