@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Kubernetes容器云</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" th:href="@{/static/img/favicon.ico}"/>
+    <link rel="bookmark" th:href="@{/static/img/favicon.ico}"/>
+    <th:block th:replace="fragments/css/css-import::core-css"/>
 </head>
-<body>
-首页
+<body class="layui-layout-iframe-body">
+<div class="layui-breadcrumb">
+  <a href="/">首页</a>
+  <a href="/demo/">演示</a>
+  <a><cite>导航元素</cite></a>
+</div>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend>Dashboard</legend>
+</fieldset>
+<div class="main-content">Dashboard</div>
 </body>
+<th:block th:replace="fragments/js/js-import::core-js"/>
 </html>

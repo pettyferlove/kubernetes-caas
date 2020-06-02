@@ -6,28 +6,39 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Kubernetes控制台</title>
+    <title>Kubernetes容器云</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" th:href="@{/static/img/favicon.ico}"/>
+    <link rel="bookmark" th:href="@{/static/img/favicon.ico}"/>
     <th:block th:replace="fragments/css/css-import::core-css"/>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <div class="layui-logo">Kubernetes控制台</div>
+        <div class="layui-logo"><img th:src="@{/static/img/favicon.ico}" class="layui-nav-img">Kubernetes容器云</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
-        <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item layui-this"><a href="">控制台</a></li>
+        <ul class="layui-nav layui-layout-left" lay-filter="menu">
+            <li class="layui-nav-item layui-this"><a url="dashboard">Dashboard</a></li>
+            <li class="layui-nav-item"><a url="development">应用管理</a></li>
+            <li class="layui-nav-item"><a url="development">服务治理</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">运维管理</a>
+                <dl class="layui-nav-child">
+                    <dd><a url="namespace">Namespace</a></dd>
+                </dl>
+            </li>
         </ul>
     </div>
 </div>
 <div>
     <div class="layui-body" id="LAY_app_body">
         <div class="layui-show">
-            <iframe src="dashboard" frameborder="0" class="layui-iframe"></iframe>
+            <iframe id="main-content" src="dashboard" frameborder="0" class="layui-iframe"></iframe>
         </div>
     </div>
 
 </div>
 </body>
 <th:block th:replace="fragments/js/js-import::core-js"/>
+<script th:src="@{/static/js/index.js}"></script>
 </html>

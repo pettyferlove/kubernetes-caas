@@ -9,6 +9,18 @@ body,html {
     height: 100%;
 }
 
+.layui-layout-iframe-body {
+    overflow: auto;
+    margin-left: 40px;
+    margin-right: 40px;
+    height: 100%;
+}
+
+.layui-breadcrumb{
+    margin-top: 30px;
+}
+
+
 .layui-iframe{
     position: absolute;
     width: 100%;
@@ -30,4 +42,8 @@ body,html {
     overflow: hidden;
     overflow-y: auto;
     box-sizing: border-box;
+}
+
+.main-content {
+
 }
