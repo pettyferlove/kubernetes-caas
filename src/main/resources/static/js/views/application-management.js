@@ -1,4 +1,18 @@
 $(function () {
+
+
+    $.ajax({
+        url: "api/v1/deployment/list",
+        success : function(result) {
+            console.log(result);
+        },
+        //请求失败，包含具体的错误信息
+        error : function(e){
+            console.log(e.status);
+        }
+    })
+
+
     layui.use('table', function(){
         var table = layui.table;
         table.render({
