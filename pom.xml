@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.github.pettyfer.kubernetes</groupId>
-    <artifactId>kubernetes-api-service</artifactId>
+    <artifactId>kubernetes-caas</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>kubernetes-api-service</name>
-    <description>KubernetesAPI 服务</description>
+    <name>kubernetes-caas</name>
+    <description>Kubernetes Caas管理平台</description>
 
     <properties>
         <java.version>1.8</java.version>
