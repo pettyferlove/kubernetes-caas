@@ -1,5 +1,5 @@
 spring:
   application:
-    name: kubernetes-api-service
+    name: kubernetes-caas
   profiles:
     active: dev

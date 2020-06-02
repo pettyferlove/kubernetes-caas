@@ -8,7 +8,7 @@
 
 - 名称
 
-Kubenetes Api服务
+kubernetes-caas平台
 
 - 作用
 
@@ -16,7 +16,7 @@ Kubenetes Api服务
 
 - git 地址
 
-https://github.com/pettyferlove/kubernetes-api-service.git
+https://github.com/pettyferlove/kubernetes-caas.git
 
 ## 开发工具及所需环境
 
