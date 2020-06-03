@@ -1,17 +1,17 @@
 package com.github.pettyfer.kubernetes.restful;
 
+import com.github.pettyfer.kubernetes.domain.vo.ListQueryParams;
+import com.github.pettyfer.kubernetes.domain.vo.Page;
+import com.github.pettyfer.kubernetes.domain.vo.R;
 import com.github.pettyfer.kubernetes.service.DeploymentService;
 import io.fabric8.kubernetes.api.model.ListOptions;
 import io.fabric8.kubernetes.api.model.apps.Deployment;
-import io.fabric8.kubernetes.api.model.apps.DeploymentList;
-import io.fabric8.kubernetes.api.model.apps.DoneableDeployment;
-import io.fabric8.kubernetes.client.dsl.MixedOperation;
-import io.fabric8.kubernetes.client.dsl.RollableScalableResource;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,10 +31,23 @@ public class DeploymentController {
         this.deploymentService = deploymentService;
     }
 
-    @GetMapping("list")
-    @ApiOperation(value = "查询Deployment列表")
-    public List<Deployment> list() {
-        return deploymentService.list();
+    @GetMapping("all/list")
+    @ApiOperation(value = "查询全部Deployment")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name = "params", value = "params", dataTypeClass = ListQueryParams.class)
+    })
+    public R<Page<Deployment>> listAll(ListQueryParams params) {
+        return new R<>(deploymentService.listAll(params));
+    }
+
+    @GetMapping("{namespace}/list")
+    @ApiOperation(value = "查询Deployment")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "path", name = "namespace", value = "namespace", dataTypeClass = String.class),
+            @ApiImplicitParam(paramType = "query", name = "params", value = "params", dataTypeClass = ListQueryParams.class)
+    })
+    public R<Page<Deployment>> list(@PathVariable String namespace, ListQueryParams params) {
+        return new R<>(deploymentService.list(namespace, params));
     }
 
 }
