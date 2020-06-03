@@ -19,11 +19,11 @@ $(function () {
             elem: '#development'
             ,url:'/api/v1/deployment/all/list'
             ,cols: [[
-                {field:'metadata.name',  title: '名称'}
+                {field:'name',  title: '名称'}
+                ,{field:'imagesName',  title: '镜像名称'}
                 ,{field:'namespace',  title: '命名空间'}
-                ,{field:'sex', title: '容器组', sort: true}
-                ,{field:'city', title: '已运行时间'}
-                ,{field:'sign', title: '创建时间'}
+                ,{field:'groupStatus', title: '容器组状态', sort: true}
+                ,{field:'creationTimestamp', title: '创建时间'}
             ]],
             parseData: function(res){ //res 即为原始返回的数据
                 console.log(res.data.records)

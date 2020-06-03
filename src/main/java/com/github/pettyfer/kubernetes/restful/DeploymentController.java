@@ -1,5 +1,6 @@
 package com.github.pettyfer.kubernetes.restful;
 
+import com.github.pettyfer.kubernetes.domain.vo.DeploymentVO;
 import com.github.pettyfer.kubernetes.domain.vo.ListQueryParams;
 import com.github.pettyfer.kubernetes.domain.vo.Page;
 import com.github.pettyfer.kubernetes.domain.vo.R;
@@ -36,7 +37,7 @@ public class DeploymentController {
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "params", value = "params", dataTypeClass = ListQueryParams.class)
     })
-    public R<Page<Deployment>> listAll(ListQueryParams params) {
+    public R<Page<DeploymentVO>> listAll(ListQueryParams params) {
         return new R<>(deploymentService.listAll(params));
     }
 
@@ -46,7 +47,7 @@ public class DeploymentController {
             @ApiImplicitParam(paramType = "path", name = "namespace", value = "namespace", dataTypeClass = String.class),
             @ApiImplicitParam(paramType = "query", name = "params", value = "params", dataTypeClass = ListQueryParams.class)
     })
-    public R<Page<Deployment>> list(@PathVariable String namespace, ListQueryParams params) {
+    public R<Page<DeploymentVO>> list(@PathVariable String namespace, ListQueryParams params) {
         return new R<>(deploymentService.list(namespace, params));
     }
 
