@@ -27,7 +27,7 @@ public class DeploymentServiceImpl implements DeploymentService {
     }
 
     @Override
-    public Page<DeploymentView> listAll(ListQueryParams params) {
+    public Page<DeploymentView> pageAll(ListQueryParams params) {
         DeploymentList list = kubernetesClient.apps().deployments().inAnyNamespace().list();
         List<DeploymentView> deployments = list.getItems().stream()
                 .skip((params.getCurrentPage()-1)*params.getPageSize())
@@ -51,7 +51,7 @@ public class DeploymentServiceImpl implements DeploymentService {
     }
 
     @Override
-    public Page<DeploymentView> list(String namespace, ListQueryParams params) {
+    public Page<DeploymentView> page(String namespace, ListQueryParams params) {
         DeploymentList list = kubernetesClient.apps().deployments().inNamespace(namespace).list();
         List<DeploymentView> deployments = list.getItems().stream()
                 .skip((params.getCurrentPage()-1) * params.getPageSize())

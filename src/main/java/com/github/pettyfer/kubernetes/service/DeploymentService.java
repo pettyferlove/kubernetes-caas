@@ -9,8 +9,19 @@ import com.github.pettyfer.kubernetes.model.Page;
  */
 public interface DeploymentService {
 
-    Page<DeploymentView> listAll(ListQueryParams params);
+    /**
+     * 分页查询所有的Deployment
+     * @param params ListQueryParams
+     * @return Page
+     */
+    Page<DeploymentView> pageAll(ListQueryParams params);
 
-    Page<DeploymentView> list(String namespace, ListQueryParams params);
+    /**
+     * 分页查询当前Namespace下的Deployment
+     * @param namespace 命名空间名称
+     * @param params ListQueryParams
+     * @return Page
+     */
+    Page<DeploymentView> page(String namespace, ListQueryParams params);
 
 }

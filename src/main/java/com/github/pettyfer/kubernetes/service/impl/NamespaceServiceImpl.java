@@ -8,6 +8,11 @@ import io.fabric8.kubernetes.client.KubernetesClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+/**
+ * @author Petty
+ */
 @Slf4j
 @Service
 public class NamespaceServiceImpl implements NamespaceService {
@@ -19,12 +24,12 @@ public class NamespaceServiceImpl implements NamespaceService {
     }
 
     @Override
-    public Page<NamespaceView> listAll(ListQueryParams params) {
+    public List<NamespaceView> listAll(ListQueryParams params) {
         return null;
     }
 
     @Override
-    public Page<NamespaceView> list(ListQueryParams params) {
+    public Page<NamespaceView> page(ListQueryParams params) {
         return null;
     }
 

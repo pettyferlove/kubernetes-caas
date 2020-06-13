@@ -39,7 +39,7 @@ public class DeploymentController {
             @ApiImplicitParam(paramType = "query", name = "params", value = "params", dataTypeClass = ListQueryParams.class)
     })
     public R<Page<DeploymentView>> listAll(ListQueryParams params) {
-        return new R<>(deploymentService.listAll(params));
+        return new R<>(deploymentService.pageAll(params));
     }
 
     @GetMapping("{namespace}/list")
@@ -49,7 +49,7 @@ public class DeploymentController {
             @ApiImplicitParam(paramType = "query", name = "params", value = "params", dataTypeClass = ListQueryParams.class)
     })
     public R<Page<DeploymentView>> list(@PathVariable String namespace, ListQueryParams params) {
-        return new R<>(deploymentService.list(namespace, params));
+        return new R<>(deploymentService.page(namespace, params));
     }
 
 
