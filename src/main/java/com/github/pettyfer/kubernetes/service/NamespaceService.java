@@ -1,14 +1,14 @@
 package com.github.pettyfer.kubernetes.service;
 
-import com.github.pettyfer.kubernetes.domain.vo.ListQueryParams;
-import com.github.pettyfer.kubernetes.domain.vo.NamespaceVO;
-import com.github.pettyfer.kubernetes.domain.vo.Page;
+import com.github.pettyfer.kubernetes.model.ListQueryParams;
+import com.github.pettyfer.kubernetes.model.NamespaceView;
+import com.github.pettyfer.kubernetes.model.Page;
 
 public interface NamespaceService {
 
-    Page<NamespaceVO> listAll(ListQueryParams params);
+    Page<NamespaceView> listAll(ListQueryParams params);
 
-    Page<NamespaceVO> list(ListQueryParams params);
+    Page<NamespaceView> list(ListQueryParams params);
 
     Boolean create(String name);
 

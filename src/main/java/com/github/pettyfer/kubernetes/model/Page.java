@@ -1,4 +1,4 @@
-package com.github.pettyfer.kubernetes.domain.vo;
+package com.github.pettyfer.kubernetes.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.util.List;
 
 
+/**
+ * @author Petty
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

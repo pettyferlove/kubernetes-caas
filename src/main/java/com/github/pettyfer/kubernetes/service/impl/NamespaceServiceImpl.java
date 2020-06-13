@@ -1,8 +1,8 @@
 package com.github.pettyfer.kubernetes.service.impl;
 
-import com.github.pettyfer.kubernetes.domain.vo.ListQueryParams;
-import com.github.pettyfer.kubernetes.domain.vo.NamespaceVO;
-import com.github.pettyfer.kubernetes.domain.vo.Page;
+import com.github.pettyfer.kubernetes.model.ListQueryParams;
+import com.github.pettyfer.kubernetes.model.NamespaceView;
+import com.github.pettyfer.kubernetes.model.Page;
 import com.github.pettyfer.kubernetes.service.NamespaceService;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import lombok.extern.slf4j.Slf4j;
@@ -19,12 +19,12 @@ public class NamespaceServiceImpl implements NamespaceService {
     }
 
     @Override
-    public Page<NamespaceVO> listAll(ListQueryParams params) {
+    public Page<NamespaceView> listAll(ListQueryParams params) {
         return null;
     }
 
     @Override
-    public Page<NamespaceVO> list(ListQueryParams params) {
+    public Page<NamespaceView> list(ListQueryParams params) {
         return null;
     }
 

@@ -1,11 +1,15 @@
-package com.github.pettyfer.kubernetes.domain.vo;
+package com.github.pettyfer.kubernetes.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.*;
 
 import java.io.Serializable;
 
+/**
+ * @author Petty
+ */
 @Data
 @Builder
 @NoArgsConstructor
@@ -13,17 +17,11 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = false)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DeploymentVO implements Serializable {
-    private static final long serialVersionUID = 936073914758626898L;
+@JsonPropertyOrder({"apiVersion", "kind", "metadata"})
+public class NamespaceView implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String name;
-
-    private String namespace;
-
-    private String groupStatus;
-
-    private String creationTimestamp;
-
-    private String imagesName;
 
 }

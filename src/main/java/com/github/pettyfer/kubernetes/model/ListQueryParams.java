@@ -1,4 +1,4 @@
-package com.github.pettyfer.kubernetes.domain.vo;
+package com.github.pettyfer.kubernetes.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+/**
+ * @author Petty
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,14 +21,14 @@ import java.io.Serializable;
 public class ListQueryParams implements Serializable {
 
     private static final long serialVersionUID = 7816186026202535090L;
-    /*
+    /**
      * 分页页码
-     * */
+     */
     private int currentPage = 1;
 
-    /*
+    /**
      * 分页大小
-     * */
+     */
     private int pageSize = 10;
 
 

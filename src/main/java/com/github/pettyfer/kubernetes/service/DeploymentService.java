@@ -1,17 +1,16 @@
 package com.github.pettyfer.kubernetes.service;
 
-import com.github.pettyfer.kubernetes.domain.vo.DeploymentVO;
-import com.github.pettyfer.kubernetes.domain.vo.ListQueryParams;
-import com.github.pettyfer.kubernetes.domain.vo.Page;
-import io.fabric8.kubernetes.api.model.apps.Deployment;
+import com.github.pettyfer.kubernetes.model.DeploymentView;
+import com.github.pettyfer.kubernetes.model.ListQueryParams;
+import com.github.pettyfer.kubernetes.model.Page;
 
 /**
  * @author Petty
  */
 public interface DeploymentService {
 
-    Page<DeploymentVO> listAll(ListQueryParams params);
+    Page<DeploymentView> listAll(ListQueryParams params);
 
-    Page<DeploymentVO> list(String namespace, ListQueryParams params);
+    Page<DeploymentView> list(String namespace, ListQueryParams params);
 
 }
