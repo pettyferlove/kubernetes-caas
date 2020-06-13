@@ -22,33 +22,33 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/deployment")
 @Api(value = "Deployment Api", tags = {"Deployment Api"})
-public class DeploymentController {
+public class DeploymentApiController {
 
     private final KubernetesClient kubernetesClient;
 
     private final DeploymentService deploymentService;
 
-    public DeploymentController(KubernetesClient kubernetesClient, DeploymentService deploymentService) {
+    public DeploymentApiController(KubernetesClient kubernetesClient, DeploymentService deploymentService) {
         this.kubernetesClient = kubernetesClient;
         this.deploymentService = deploymentService;
     }
 
-    @GetMapping("all/list")
+    @GetMapping("all/page")
     @ApiOperation(value = "查询全部Deployment")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "params", value = "params", dataTypeClass = ListQueryParams.class)
     })
-    public R<Page<DeploymentView>> listAll(ListQueryParams params) {
+    public R<Page<DeploymentView>> pageAll(ListQueryParams params) {
         return new R<>(deploymentService.pageAll(params));
     }
 
-    @GetMapping("{namespace}/list")
+    @GetMapping("{namespace}/page")
     @ApiOperation(value = "查询Deployment")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "path", name = "namespace", value = "namespace", dataTypeClass = String.class),
             @ApiImplicitParam(paramType = "query", name = "params", value = "params", dataTypeClass = ListQueryParams.class)
     })
-    public R<Page<DeploymentView>> list(@PathVariable String namespace, ListQueryParams params) {
+    public R<Page<DeploymentView>> page(@PathVariable String namespace, ListQueryParams params) {
         return new R<>(deploymentService.page(namespace, params));
     }
 

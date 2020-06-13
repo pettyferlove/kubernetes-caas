@@ -13,10 +13,9 @@ public interface NamespaceService {
 
     /**
      * 列出所有的Namespace
-     * @param params ListQueryParams
      * @return Page
      */
-    List<NamespaceView> listAll(ListQueryParams params);
+    List<NamespaceView> listAll();
 
     /**
      * 列出当前用户（Kubernetes用户）下的所有的Namespace
@@ -27,16 +26,16 @@ public interface NamespaceService {
 
     /**
      * 创建Namespace
-     * @param name 名称
+     * @param namespace 名称
      * @return Boolean
      */
-    Boolean create(String name);
+    Boolean create(String namespace);
 
     /**
      * 删除Namespace
-     * @param name 名称
+     * @param namespace 名称
      * @return Boolean
      */
-    Boolean delete(String name);
+    Boolean delete(String namespace);
 
 }

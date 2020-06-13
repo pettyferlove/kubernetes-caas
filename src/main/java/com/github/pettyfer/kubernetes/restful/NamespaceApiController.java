@@ -1,15 +1,20 @@
 package com.github.pettyfer.kubernetes.restful;
 
+import com.github.pettyfer.kubernetes.model.ListQueryParams;
+import com.github.pettyfer.kubernetes.model.NamespaceView;
+import com.github.pettyfer.kubernetes.model.Page;
+import com.github.pettyfer.kubernetes.service.NamespaceService;
 import io.fabric8.kubernetes.api.model.ListOptions;
 import io.fabric8.kubernetes.api.model.Namespace;
 import io.fabric8.kubernetes.api.model.NamespaceBuilder;
 import io.fabric8.kubernetes.api.model.NamespaceList;
-import io.fabric8.kubernetes.client.KubernetesClient;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author Petty
@@ -19,19 +24,25 @@ import org.springframework.web.bind.annotation.*;
 @Api(value = "Namespace Api", tags = {"Namespace Api"})
 public class NamespaceApiController {
 
-    private final KubernetesClient kubernetesClient;
+    private final NamespaceService namespaceService;
 
-    public NamespaceApiController(KubernetesClient kubernetesClient) {
-        this.kubernetesClient = kubernetesClient;
+    public NamespaceApiController(NamespaceService namespaceService) {
+        this.namespaceService = namespaceService;
     }
 
-    @GetMapping("list")
+    @GetMapping("all/list")
+    @ApiOperation(value = "查询全部Namespace")
+    public List<NamespaceView> listAll() {
+        return namespaceService.listAll();
+    }
+
+    @GetMapping("page")
     @ApiOperation(value = "查询Namespace列表")
     @ApiImplicitParams({
-            @ApiImplicitParam(paramType = "query", name = "listOptions", value = "listOptions", dataTypeClass = ListOptions.class)
+            @ApiImplicitParam(paramType = "query", name = "params", value = "params", dataTypeClass = ListQueryParams.class)
     })
-    public NamespaceList list(ListOptions listOptions) {
-        return kubernetesClient.namespaces().list(listOptions);
+    public Page<NamespaceView> page(ListQueryParams params) {
+        return namespaceService.page(params);
     }
 
     @PostMapping("{namespace}")
@@ -39,15 +50,8 @@ public class NamespaceApiController {
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "path", name = "namespace", value = "namespace", dataTypeClass = String.class)
     })
-    public Namespace create(@PathVariable String namespace) {
-        Namespace ns = new NamespaceBuilder()
-                .withApiVersion("v1")
-                .withKind("Namespace")
-                .withNewMetadata()
-                .withName(namespace)
-                .endMetadata()
-                .build();
-        return kubernetesClient.namespaces().create(ns);
+    public Boolean create(@PathVariable String namespace) {
+        return namespaceService.create(namespace);
     }
 
     @DeleteMapping("{namespace}")
@@ -56,7 +60,7 @@ public class NamespaceApiController {
             @ApiImplicitParam(paramType = "path", name = "namespace", value = "namespace", dataTypeClass = String.class)
     })
     public Boolean delete(@PathVariable String namespace) {
-        return kubernetesClient.namespaces().withName(namespace).delete();
+        return namespaceService.delete(namespace);
     }
 
 }
