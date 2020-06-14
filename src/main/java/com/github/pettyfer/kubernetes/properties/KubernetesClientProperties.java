@@ -1,0 +1,25 @@
+package com.github.pettyfer.kubernetes.properties;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * @author Petty
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Configuration
+@ConfigurationProperties(prefix = "kubernetes.client")
+public class KubernetesClientProperties {
+
+    @Value("${kubernetes.client.master-url:http://127.0.0.1:8001}")
+    private String masterUrl;
+
+    private String token;
+
+}
