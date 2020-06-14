@@ -1,3 +1,4 @@
+# 开发配置-本地环境
 management:
   endpoints:
     web:

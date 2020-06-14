@@ -20,6 +20,7 @@
         <jdk.compile.source.version>1.8</jdk.compile.source.version>
         <jdk.compile.target.version>1.8</jdk.compile.target.version>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <skipTests>true</skipTests>
     </properties>
 
     <dependencies>

@@ -17,9 +17,15 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "kubernetes.client")
 public class KubernetesClientProperties {
 
+    /**
+     * 主节点Api Proxy地址
+     */
     @Value("${kubernetes.client.master-url:http://127.0.0.1:8001}")
     private String masterUrl;
 
+    /**
+     * Kubernetes用户Token
+     */
     private String token;
 
 }
