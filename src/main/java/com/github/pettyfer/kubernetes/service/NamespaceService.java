@@ -1,6 +1,7 @@
 package com.github.pettyfer.kubernetes.service;
 
 import com.github.pettyfer.kubernetes.model.ListQueryParams;
+import com.github.pettyfer.kubernetes.model.NamespaceDetailView;
 import com.github.pettyfer.kubernetes.model.NamespacePageView;
 import com.github.pettyfer.kubernetes.model.Page;
 
@@ -37,5 +38,12 @@ public interface NamespaceService {
      * @return Boolean
      */
     Boolean delete(String namespace);
+
+    /**
+     * 获取Namespace详情
+     * @param namespace 名称
+     * @return NamespaceDetailView
+     */
+    NamespaceDetailView get(String namespace);
 
 }

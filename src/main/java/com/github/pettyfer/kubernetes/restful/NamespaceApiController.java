@@ -1,8 +1,6 @@
 package com.github.pettyfer.kubernetes.restful;
 
-import com.github.pettyfer.kubernetes.model.ListQueryParams;
-import com.github.pettyfer.kubernetes.model.NamespacePageView;
-import com.github.pettyfer.kubernetes.model.Page;
+import com.github.pettyfer.kubernetes.model.*;
 import com.github.pettyfer.kubernetes.service.NamespaceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -28,8 +26,8 @@ public class NamespaceApiController {
 
     @GetMapping("all/list")
     @ApiOperation(value = "查询全部Namespace")
-    public List<NamespacePageView> listAll() {
-        return namespaceService.listAll();
+    public R<List<NamespacePageView>> listAll() {
+        return new R<>(namespaceService.listAll());
     }
 
     @GetMapping("page")
@@ -37,8 +35,8 @@ public class NamespaceApiController {
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "params", value = "params", dataTypeClass = ListQueryParams.class)
     })
-    public Page<NamespacePageView> page(ListQueryParams params) {
-        return namespaceService.page(params);
+    public R<Page<NamespacePageView>> page(ListQueryParams params) {
+        return new R<>(namespaceService.page(params));
     }
 
     @PostMapping("{namespace}")
@@ -46,8 +44,17 @@ public class NamespaceApiController {
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "path", name = "namespace", value = "namespace", dataTypeClass = String.class)
     })
-    public Boolean create(@PathVariable String namespace) {
-        return namespaceService.create(namespace);
+    public R<Boolean> create(@PathVariable String namespace) {
+        return new R<>(namespaceService.create(namespace));
+    }
+
+    @GetMapping("{namespace}")
+    @ApiOperation(value = "获取Namespace详情")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "path", name = "namespace", value = "namespace", dataTypeClass = String.class)
+    })
+    public R<NamespaceDetailView> get(@PathVariable String namespace) {
+        return new R<>(namespaceService.get(namespace));
     }
 
     @DeleteMapping("{namespace}")
@@ -55,8 +62,8 @@ public class NamespaceApiController {
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "path", name = "namespace", value = "namespace", dataTypeClass = String.class)
     })
-    public Boolean delete(@PathVariable String namespace) {
-        return namespaceService.delete(namespace);
+    public R<Boolean> delete(@PathVariable String namespace) {
+        return new R<>(namespaceService.delete(namespace));
     }
 
 }

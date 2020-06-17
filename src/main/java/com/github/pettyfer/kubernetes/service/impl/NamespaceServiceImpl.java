@@ -1,6 +1,7 @@
 package com.github.pettyfer.kubernetes.service.impl;
 
 import com.github.pettyfer.kubernetes.model.ListQueryParams;
+import com.github.pettyfer.kubernetes.model.NamespaceDetailView;
 import com.github.pettyfer.kubernetes.model.NamespacePageView;
 import com.github.pettyfer.kubernetes.model.Page;
 import com.github.pettyfer.kubernetes.service.NamespaceService;
@@ -86,5 +87,17 @@ public class NamespaceServiceImpl implements NamespaceService {
         } catch (Exception e) {
             throw new RuntimeException("Namespace删除失败，请检查是否存在");
         }
+    }
+
+    @Override
+    public NamespaceDetailView get(String namespace) {
+        Namespace ns = kubernetesClient.namespaces().withName(namespace).get();
+        return NamespaceDetailView.builder()
+                .apiVersion(ns.getApiVersion())
+                .additionalProperties(ns.getAdditionalProperties())
+                .metadata(ns.getMetadata())
+                .spec(ns.getSpec())
+                .status(ns.getStatus())
+                .build();
     }
 }
