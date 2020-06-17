@@ -1,6 +1,6 @@
 package com.github.pettyfer.kubernetes.restful;
 
-import com.github.pettyfer.kubernetes.model.DeploymentView;
+import com.github.pettyfer.kubernetes.model.DeploymentPageView;
 import com.github.pettyfer.kubernetes.model.ListQueryParams;
 import com.github.pettyfer.kubernetes.model.Page;
 import com.github.pettyfer.kubernetes.model.R;
@@ -38,7 +38,7 @@ public class DeploymentApiController {
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "params", value = "params", dataTypeClass = ListQueryParams.class)
     })
-    public R<Page<DeploymentView>> pageAll(ListQueryParams params) {
+    public R<Page<DeploymentPageView>> pageAll(ListQueryParams params) {
         return new R<>(deploymentService.pageAll(params));
     }
 
@@ -48,7 +48,7 @@ public class DeploymentApiController {
             @ApiImplicitParam(paramType = "path", name = "namespace", value = "namespace", dataTypeClass = String.class),
             @ApiImplicitParam(paramType = "query", name = "params", value = "params", dataTypeClass = ListQueryParams.class)
     })
-    public R<Page<DeploymentView>> page(@PathVariable String namespace, ListQueryParams params) {
+    public R<Page<DeploymentPageView>> page(@PathVariable String namespace, ListQueryParams params) {
         return new R<>(deploymentService.page(namespace, params));
     }
 

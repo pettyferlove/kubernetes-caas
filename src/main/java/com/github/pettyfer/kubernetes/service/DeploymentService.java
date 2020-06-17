@@ -1,6 +1,6 @@
 package com.github.pettyfer.kubernetes.service;
 
-import com.github.pettyfer.kubernetes.model.DeploymentView;
+import com.github.pettyfer.kubernetes.model.DeploymentPageView;
 import com.github.pettyfer.kubernetes.model.ListQueryParams;
 import com.github.pettyfer.kubernetes.model.Page;
 
@@ -14,7 +14,7 @@ public interface DeploymentService {
      * @param params ListQueryParams
      * @return Page
      */
-    Page<DeploymentView> pageAll(ListQueryParams params);
+    Page<DeploymentPageView> pageAll(ListQueryParams params);
 
     /**
      * 分页查询当前Namespace下的Deployment
@@ -22,6 +22,6 @@ public interface DeploymentService {
      * @param params ListQueryParams
      * @return Page
      */
-    Page<DeploymentView> page(String namespace, ListQueryParams params);
+    Page<DeploymentPageView> page(String namespace, ListQueryParams params);
 
 }

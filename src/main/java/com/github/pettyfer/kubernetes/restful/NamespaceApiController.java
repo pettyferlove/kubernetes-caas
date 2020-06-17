@@ -1,13 +1,9 @@
 package com.github.pettyfer.kubernetes.restful;
 
 import com.github.pettyfer.kubernetes.model.ListQueryParams;
-import com.github.pettyfer.kubernetes.model.NamespaceView;
+import com.github.pettyfer.kubernetes.model.NamespacePageView;
 import com.github.pettyfer.kubernetes.model.Page;
 import com.github.pettyfer.kubernetes.service.NamespaceService;
-import io.fabric8.kubernetes.api.model.ListOptions;
-import io.fabric8.kubernetes.api.model.Namespace;
-import io.fabric8.kubernetes.api.model.NamespaceBuilder;
-import io.fabric8.kubernetes.api.model.NamespaceList;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -32,7 +28,7 @@ public class NamespaceApiController {
 
     @GetMapping("all/list")
     @ApiOperation(value = "查询全部Namespace")
-    public List<NamespaceView> listAll() {
+    public List<NamespacePageView> listAll() {
         return namespaceService.listAll();
     }
 
@@ -41,7 +37,7 @@ public class NamespaceApiController {
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "params", value = "params", dataTypeClass = ListQueryParams.class)
     })
-    public Page<NamespaceView> page(ListQueryParams params) {
+    public Page<NamespacePageView> page(ListQueryParams params) {
         return namespaceService.page(params);
     }
 

@@ -16,7 +16,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = false)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DeploymentView implements Serializable {
+public class DeploymentPageView implements Serializable {
     private static final long serialVersionUID = 936073914758626898L;
 
     private String name;

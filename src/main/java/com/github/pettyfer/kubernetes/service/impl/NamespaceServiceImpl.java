@@ -1,15 +1,12 @@
 package com.github.pettyfer.kubernetes.service.impl;
 
-import com.github.pettyfer.kubernetes.model.DeploymentView;
 import com.github.pettyfer.kubernetes.model.ListQueryParams;
-import com.github.pettyfer.kubernetes.model.NamespaceView;
+import com.github.pettyfer.kubernetes.model.NamespacePageView;
 import com.github.pettyfer.kubernetes.model.Page;
 import com.github.pettyfer.kubernetes.service.NamespaceService;
-import io.fabric8.kubernetes.api.model.Container;
 import io.fabric8.kubernetes.api.model.Namespace;
 import io.fabric8.kubernetes.api.model.NamespaceBuilder;
 import io.fabric8.kubernetes.api.model.NamespaceList;
-import io.fabric8.kubernetes.api.model.apps.DeploymentList;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -31,16 +28,16 @@ public class NamespaceServiceImpl implements NamespaceService {
     }
 
     @Override
-    public List<NamespaceView> listAll() {
+    public List<NamespacePageView> listAll() {
         NamespaceList namespaceList = kubernetesClient.namespaces().list();
         return namespaceList.getItems().stream()
-                .map(i -> NamespaceView.builder().name(i.getMetadata().getName()).build()).collect(Collectors.toList());
+                .map(i -> NamespacePageView.builder().name(i.getMetadata().getName()).build()).collect(Collectors.toList());
     }
 
     @Override
-    public Page<NamespaceView> page(ListQueryParams params) {
+    public Page<NamespacePageView> page(ListQueryParams params) {
         NamespaceList list = kubernetesClient.namespaces().list();
-        List<NamespaceView> namespaceViews = list.getItems().stream()
+        List<NamespacePageView> namespacePageViews = list.getItems().stream()
                 .skip((params.getCurrentPage()-1) * params.getPageSize())
                 .limit(params.getPageSize())
                 .map(i-> {
@@ -49,7 +46,7 @@ public class NamespaceServiceImpl implements NamespaceService {
                     if(injectionKey&&"enable".equals(i.getMetadata().getLabels().get("istio-injection"))){
                         isOpen = true;
                     }
-                    return  NamespaceView.builder()
+                    return  NamespacePageView.builder()
                             .name(i.getMetadata().getName())
                             .status(i.getStatus().getPhase())
                             .istioInjection(isOpen)
@@ -57,8 +54,8 @@ public class NamespaceServiceImpl implements NamespaceService {
                             .build();
                 })
                 .collect(Collectors.toList());
-        Page<NamespaceView> page = new Page<NamespaceView>();
-        page.setRecords(namespaceViews);
+        Page<NamespacePageView> page = new Page<NamespacePageView>();
+        page.setRecords(namespacePageViews);
         page.setCurrent(params.getCurrentPage());
         page.setSize(params.getPageSize());
         page.setTotal(list.getItems().size());

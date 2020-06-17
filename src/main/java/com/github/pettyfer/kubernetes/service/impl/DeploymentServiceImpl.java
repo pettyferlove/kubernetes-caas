@@ -1,6 +1,6 @@
 package com.github.pettyfer.kubernetes.service.impl;
 
-import com.github.pettyfer.kubernetes.model.DeploymentView;
+import com.github.pettyfer.kubernetes.model.DeploymentPageView;
 import com.github.pettyfer.kubernetes.model.ListQueryParams;
 import com.github.pettyfer.kubernetes.model.Page;
 import com.github.pettyfer.kubernetes.service.DeploymentService;
@@ -27,14 +27,14 @@ public class DeploymentServiceImpl implements DeploymentService {
     }
 
     @Override
-    public Page<DeploymentView> pageAll(ListQueryParams params) {
+    public Page<DeploymentPageView> pageAll(ListQueryParams params) {
         DeploymentList list = kubernetesClient.apps().deployments().inAnyNamespace().list();
-        List<DeploymentView> deployments = list.getItems().stream()
+        List<DeploymentPageView> deployments = list.getItems().stream()
                 .skip((params.getCurrentPage()-1)*params.getPageSize())
                 .limit(params.getPageSize())
                 .map(i->{
                     List<Container> containers = i.getSpec().getTemplate().getSpec().getContainers();
-                    return DeploymentView.builder()
+                    return DeploymentPageView.builder()
                             .name(i.getMetadata().getName())
                             .imagesName(containers.get(0).getImage())
                             .namespace(i.getMetadata().getNamespace())
@@ -42,7 +42,7 @@ public class DeploymentServiceImpl implements DeploymentService {
                             .groupStatus(i.getStatus().getReplicas()+ "/" + i.getStatus().getReadyReplicas())
                             .build();
                 }).collect(Collectors.toList());
-        Page<DeploymentView> page = new Page<DeploymentView>();
+        Page<DeploymentPageView> page = new Page<DeploymentPageView>();
         page.setRecords(deployments);
         page.setCurrent(params.getCurrentPage());
         page.setSize(params.getPageSize());
@@ -51,14 +51,14 @@ public class DeploymentServiceImpl implements DeploymentService {
     }
 
     @Override
-    public Page<DeploymentView> page(String namespace, ListQueryParams params) {
+    public Page<DeploymentPageView> page(String namespace, ListQueryParams params) {
         DeploymentList list = kubernetesClient.apps().deployments().inNamespace(namespace).list();
-        List<DeploymentView> deployments = list.getItems().stream()
+        List<DeploymentPageView> deployments = list.getItems().stream()
                 .skip((params.getCurrentPage()-1) * params.getPageSize())
                 .limit(params.getPageSize())
                 .map(i->{
                     List<Container> containers = i.getSpec().getTemplate().getSpec().getContainers();
-                    return DeploymentView.builder()
+                    return DeploymentPageView.builder()
                             .name(i.getMetadata().getName())
                             .imagesName(containers.get(0).getImage())
                             .namespace(i.getMetadata().getNamespace())
@@ -67,7 +67,7 @@ public class DeploymentServiceImpl implements DeploymentService {
                             .build();
                 })
                 .collect(Collectors.toList());
-        Page<DeploymentView> page = new Page<DeploymentView>();
+        Page<DeploymentPageView> page = new Page<DeploymentPageView>();
         page.setRecords(deployments);
         page.setCurrent(params.getCurrentPage());
         page.setSize(params.getPageSize());

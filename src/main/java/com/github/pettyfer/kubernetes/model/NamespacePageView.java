@@ -18,7 +18,7 @@ import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({"apiVersion", "kind", "metadata"})
-public class NamespaceView implements Serializable {
+public class NamespacePageView implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
