@@ -1,12 +1,15 @@
 package com.github.pettyfer.kubernetes.service.impl;
 
+import com.github.pettyfer.kubernetes.model.DeploymentView;
 import com.github.pettyfer.kubernetes.model.ListQueryParams;
 import com.github.pettyfer.kubernetes.model.NamespaceView;
 import com.github.pettyfer.kubernetes.model.Page;
 import com.github.pettyfer.kubernetes.service.NamespaceService;
+import io.fabric8.kubernetes.api.model.Container;
 import io.fabric8.kubernetes.api.model.Namespace;
 import io.fabric8.kubernetes.api.model.NamespaceBuilder;
 import io.fabric8.kubernetes.api.model.NamespaceList;
+import io.fabric8.kubernetes.api.model.apps.DeploymentList;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -36,7 +39,30 @@ public class NamespaceServiceImpl implements NamespaceService {
 
     @Override
     public Page<NamespaceView> page(ListQueryParams params) {
-        return null;
+        NamespaceList list = kubernetesClient.namespaces().list();
+        List<NamespaceView> namespaceViews = list.getItems().stream()
+                .skip((params.getCurrentPage()-1) * params.getPageSize())
+                .limit(params.getPageSize())
+                .map(i-> {
+                    boolean isOpen = false;
+                    boolean injectionKey = i.getMetadata().getLabels() != null && i.getMetadata().getLabels().containsKey("istio-injection");
+                    if(injectionKey&&"enable".equals(i.getMetadata().getLabels().get("istio-injection"))){
+                        isOpen = true;
+                    }
+                    return  NamespaceView.builder()
+                            .name(i.getMetadata().getName())
+                            .status(i.getStatus().getPhase())
+                            .istioInjection(isOpen)
+                            .creationTimestamp(i.getMetadata().getCreationTimestamp())
+                            .build();
+                })
+                .collect(Collectors.toList());
+        Page<NamespaceView> page = new Page<NamespaceView>();
+        page.setRecords(namespaceViews);
+        page.setCurrent(params.getCurrentPage());
+        page.setSize(params.getPageSize());
+        page.setTotal(list.getItems().size());
+        return page;
     }
 
     @Override
