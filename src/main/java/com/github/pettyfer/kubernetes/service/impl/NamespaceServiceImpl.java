@@ -8,6 +8,7 @@ import com.github.pettyfer.kubernetes.service.NamespaceService;
 import io.fabric8.kubernetes.api.model.Namespace;
 import io.fabric8.kubernetes.api.model.NamespaceBuilder;
 import io.fabric8.kubernetes.api.model.NamespaceList;
+import io.fabric8.kubernetes.api.model.ResourceQuota;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -92,6 +93,7 @@ public class NamespaceServiceImpl implements NamespaceService {
     @Override
     public NamespaceDetailView get(String namespace) {
         Namespace ns = kubernetesClient.namespaces().withName(namespace).get();
+        /*ResourceQuota resourceQuota = kubernetesClient.resourceQuotas().withName(namespace).get();*/
         return NamespaceDetailView.builder()
                 .apiVersion(ns.getApiVersion())
                 .additionalProperties(ns.getAdditionalProperties())
