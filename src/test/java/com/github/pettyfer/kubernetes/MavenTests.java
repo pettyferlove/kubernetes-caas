@@ -23,5 +23,4 @@ public class MavenTests {
         request.setProperties(properties);
         invoker.execute(request);
     }
-
 }
