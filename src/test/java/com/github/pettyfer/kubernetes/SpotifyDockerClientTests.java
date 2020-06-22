@@ -21,7 +21,7 @@ public class SpotifyDockerClientTests {
     private static DockerClient dockerClient;
 
     @BeforeAll
-    public static void init(){
+    public static void init() {
         dockerClient = DefaultDockerClient.builder().uri(URI.create(DOCKER_MASTER_HOST)).build();
     }
 
@@ -30,17 +30,17 @@ public class SpotifyDockerClientTests {
     public void listContainers() {
         List<Container> containers = dockerClient.listContainers();
         log.info("there is currently {} container", containers.size());
-        for (Container c:containers) {
+        for (Container c : containers) {
             log.info(c.toString());
         }
     }
 
     @Test
     @SneakyThrows
-    public void listImages(){
+    public void listImages() {
         List<Image> images = dockerClient.listImages();
         log.info("there is currently {} image", images.size());
-        for (Image i:images) {
+        for (Image i : images) {
             log.info(i.toString());
         }
     }
@@ -48,7 +48,6 @@ public class SpotifyDockerClientTests {
     @Test
     @SneakyThrows
     public void createImages() {
-
     }
 
 }

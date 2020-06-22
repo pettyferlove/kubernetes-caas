@@ -1,8 +1,6 @@
 package com.github.pettyfer.kubernetes;
 
 import com.github.dockerjava.api.DockerClient;
-import com.github.dockerjava.api.command.BuildImageResultCallback;
-import com.github.dockerjava.api.command.ListContainersCmd;
 import com.github.dockerjava.api.model.Container;
 import com.github.dockerjava.api.model.Image;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
@@ -23,7 +21,7 @@ public class DockerJavaTests {
     private static DockerClient dockerClient;
 
     @BeforeAll
-    public static void init(){
+    public static void init() {
         DefaultDockerClientConfig clientConfig = DefaultDockerClientConfig.createDefaultConfigBuilder()
                 .withDockerHost(DOCKER_MASTER_HOST)
                 .build();
@@ -35,17 +33,17 @@ public class DockerJavaTests {
     public void listContainers() {
         List<Container> containers = dockerClient.listContainersCmd().exec();
         log.info("there is currently {} container", containers.size());
-        for (Container c:containers) {
+        for (Container c : containers) {
             log.info(c.toString());
         }
     }
 
     @Test
     @SneakyThrows
-    public void listImages(){
+    public void listImages() {
         List<Image> images = dockerClient.listImagesCmd().exec();
         log.info("there is currently {} container", images.size());
-        for (Image i:images) {
+        for (Image i : images) {
             log.info(i.toString());
         }
     }
