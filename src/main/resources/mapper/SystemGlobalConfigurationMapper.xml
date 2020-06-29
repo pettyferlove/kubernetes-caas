@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinobest.caas.system.mapper.SystemGlobalConfigurationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.github.pettyfer.caas.system.entity.SystemGlobalConfiguration">
+        <id column="id" property="id" />
+        <result column="gitlab_home_path" property="gitlabHomePath" />
+        <result column="docker_host" property="dockerHost" />
+        <result column="workspace" property="workspace" />
+        <result column="docker_registry_path" property="dockerRegistryPath" />
+        <result column="docker_registry_project" property="dockerRegistryProject" />
+        <result column="docker_registry_username" property="dockerRegistryUsername" />
+        <result column="docker_registry_password" property="dockerRegistryPassword" />
+        <result column="maven_home" property="mavenHome" />
+        <result column="del_flag" property="delFlag" />
+        <result column="creator" property="creator" />
+        <result column="create_time" property="createTime" />
+        <result column="modifier" property="modifier" />
+        <result column="modify_time" property="modifyTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, gitlab_home_path, docker_host, workspace, docker_registry_path, docker_registry_project, docker_registry_username, docker_registry_password, maven_home, del_flag, creator, create_time, modifier, modify_time
+    </sql>
+
+</mapper>
