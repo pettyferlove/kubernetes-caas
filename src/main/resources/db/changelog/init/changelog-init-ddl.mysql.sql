@@ -16,3 +16,19 @@ create table system_global_configuration
 		primary key (id)
 );
 
+--changeset Petty:caas-init-ddl-2
+alter table system_global_configuration
+	add del_flag tinyint unsigned default 0 not null comment '删除标记 0 未删除 1 删除';
+
+alter table system_global_configuration
+	add creator varchar(128) null comment '创建人';
+
+alter table system_global_configuration
+	add create_time datetime null comment '创建时间';
+
+alter table system_global_configuration
+	add modifier varchar(128) null comment '修改人';
+
+alter table system_global_configuration
+	add modify_time datetime null comment '修改时间';
+

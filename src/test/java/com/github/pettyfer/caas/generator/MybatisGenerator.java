@@ -66,7 +66,7 @@ public class MybatisGenerator {
         mpg.setStrategy(strategy);
         // 配置包路径
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.github.pettyfer.caas");
+        pc.setParent("com.github.pettyfer.caas.system");
         mpg.setPackageInfo(pc);
         mpg.execute();
     }
