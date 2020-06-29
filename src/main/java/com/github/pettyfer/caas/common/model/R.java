@@ -1,7 +1,5 @@
 package com.github.pettyfer.caas.common.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -14,8 +12,6 @@ import java.io.Serializable;
  */
 
 @Data
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class R<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 

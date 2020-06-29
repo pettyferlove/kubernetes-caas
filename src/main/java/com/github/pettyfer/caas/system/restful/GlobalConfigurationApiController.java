@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.*;
  * @author Petty
  * @since 2020-06-29
  */
-@Api(value = "", tags = {"接口"})
+@Api(value = "系统全局配置", tags = {"系统全局配置接口"})
 @RestController
-@RequestMapping("/systemGlobalConfiguration")
+@RequestMapping("/api/v1/global-configuration")
 public class GlobalConfigurationApiController {
     private final ISystemGlobalConfigurationService systemGlobalConfigurationService;
 
@@ -27,24 +27,14 @@ public class GlobalConfigurationApiController {
         this.systemGlobalConfigurationService = systemGlobalConfigurationService;
     }
 
-    @ApiOperation(value = "获取列表", notes = "无需特殊权限", authorizations = @Authorization(value = "oauth2"))
-    @ApiImplicitParams({
-            @ApiImplicitParam(paramType = "query", name = "systemGlobalConfiguration", value = "systemGlobalConfiguration", dataTypeClass = SystemGlobalConfiguration.class),
-            @ApiImplicitParam(paramType = "query", name = "page", value = "Page", dataTypeClass = Page.class)
-    })
-    @GetMapping("page")
-    public R<IPage> page(SystemGlobalConfiguration systemGlobalConfiguration, Page<SystemGlobalConfiguration> page) {
-        return new R<>(systemGlobalConfigurationService.page(systemGlobalConfiguration, page));
-    }
-
 
     @ApiOperation(value = "获取详情", notes = "无需特殊权限", authorizations = @Authorization(value = "oauth2"))
             @ApiImplicitParams({
             @ApiImplicitParam(paramType = "path", name = "id", value = "id", dataTypeClass = String.class)
     })
-    @GetMapping("/{id}")
-    public R<SystemGlobalConfiguration> get(@PathVariable String id) {
-        return new R<>(systemGlobalConfigurationService.get(id));
+    @GetMapping
+    public R<SystemGlobalConfiguration> get() {
+        return new R<>(systemGlobalConfigurationService.get());
     }
 
     @ApiOperation(value = "创建", notes = "无需特殊权限", authorizations = @Authorization(value = "oauth2"))
@@ -63,14 +53,5 @@ public class GlobalConfigurationApiController {
     @PutMapping
     public R<Boolean> update(SystemGlobalConfiguration systemGlobalConfiguration) {
         return new R<>(systemGlobalConfigurationService.update(systemGlobalConfiguration));
-    }
-
-    @ApiOperation(value = "删除", notes = "无需特殊权限", authorizations = @Authorization(value = "oauth2"))
-    @ApiImplicitParams({
-    @ApiImplicitParam(paramType = "path", name = "id", value = "id", dataTypeClass = String.class)
-    })
-    @DeleteMapping("/{id}")
-    public R<Boolean> delete(@PathVariable String id) {
-        return new R<>(systemGlobalConfigurationService.delete(id));
     }
 }

@@ -2,4 +2,4 @@ spring:
   application:
     name: kubernetes-caas
   profiles:
-    active: dev
+    active: compay
