@@ -1,8 +1,8 @@
 package com.github.pettyfer.caas.engine.gitlab.restful;
 
-import com.sinobest.caas.common.model.R;
-import com.sinobest.caas.engine.gitlab.model.GitlabProjectView;
-import com.sinobest.caas.engine.gitlab.service.IGitlabService;
+import com.github.pettyfer.caas.common.model.R;
+import com.github.pettyfer.caas.engine.gitlab.model.GitlabProjectView;
+import com.github.pettyfer.caas.engine.gitlab.service.IGitlabService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;

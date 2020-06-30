@@ -1,8 +1,9 @@
 package com.github.pettyfer.caas.engine.gitlab.service;
 
-import com.sinobest.caas.engine.gitlab.model.GitlabBranchView;
-import com.sinobest.caas.engine.gitlab.model.GitlabProjectView;
-import com.sinobest.caas.engine.gitlab.model.GitlabTagView;
+
+import com.github.pettyfer.caas.engine.gitlab.model.GitlabBranchView;
+import com.github.pettyfer.caas.engine.gitlab.model.GitlabProjectView;
+import com.github.pettyfer.caas.engine.gitlab.model.GitlabTagView;
 
 import java.util.List;
 

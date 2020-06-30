@@ -1,18 +1,18 @@
 package com.github.pettyfer.caas.engine.gitlab.service.impl;
 
-import com.sinobest.caas.common.utils.ConverterUtil;
-import com.sinobest.caas.engine.gitlab.model.GitlabBranchView;
-import com.sinobest.caas.engine.gitlab.model.GitlabProjectView;
-import com.sinobest.caas.engine.gitlab.model.GitlabTagView;
-import com.sinobest.caas.engine.gitlab.service.IGitlabService;
-import com.sinobest.caas.system.service.ISystemGlobalConfigurationService;
+import com.github.pettyfer.caas.common.utils.ConverterUtil;
+import com.github.pettyfer.caas.engine.gitlab.model.GitlabBranchView;
+import com.github.pettyfer.caas.engine.gitlab.model.GitlabProjectView;
+import com.github.pettyfer.caas.engine.gitlab.model.GitlabTagView;
+import com.github.pettyfer.caas.engine.gitlab.service.IGitlabService;
+import com.github.pettyfer.caas.system.service.ISystemGlobalConfigurationService;
 import lombok.extern.slf4j.Slf4j;
+import org.gitlab.api.models.GitlabBranch;
 import org.gitlab.api.models.GitlabProject;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @author Petty
@@ -38,8 +38,9 @@ public class GitlabServiceImpl implements IGitlabService {
         for (int i = 0; i < 10; i++) {
             sss.add(new GitlabProject());
         }
-        Optional<List<GitlabProjectView>> gitlabProjectViews = Optional.ofNullable(ConverterUtil.convertList(GitlabProject.class, GitlabProjectView.class, sss));
-        return gitlabProjectViews.orElseGet(ArrayList::new);
+        GitlabBranch gitlabProject = new GitlabBranch();
+        System.out.println(ConverterUtil.convert(gitlabProject, new GitlabProjectView()));
+        return new ArrayList<>();
     }
 
     @Override
