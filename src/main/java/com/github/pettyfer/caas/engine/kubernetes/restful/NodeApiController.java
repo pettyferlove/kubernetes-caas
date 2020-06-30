@@ -1,4 +1,4 @@
-package com.github.pettyfer.caas.engine.restful;
+package com.github.pettyfer.caas.engine.kubernetes.restful;
 
 import io.fabric8.kubernetes.api.model.ListOptions;
 import io.fabric8.kubernetes.api.model.Node;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/node")
+@RequestMapping("/api/v1/kubernetes/node")
 @Api(value = "Node Api", tags = {"Node Api"})
 public class NodeApiController {
 

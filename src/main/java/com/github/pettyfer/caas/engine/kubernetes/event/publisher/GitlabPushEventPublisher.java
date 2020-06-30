@@ -1,6 +1,6 @@
-package com.github.pettyfer.caas.engine.event.publisher;
+package com.github.pettyfer.caas.engine.kubernetes.event.publisher;
 
-import com.github.pettyfer.caas.engine.event.GitlabPushEvent;
+import com.github.pettyfer.caas.engine.kubernetes.event.GitlabPushEvent;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 

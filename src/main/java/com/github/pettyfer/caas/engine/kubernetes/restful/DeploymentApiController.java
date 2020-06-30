@@ -1,10 +1,10 @@
-package com.github.pettyfer.caas.engine.restful;
+package com.github.pettyfer.caas.engine.kubernetes.restful;
 
-import com.github.pettyfer.caas.engine.model.DeploymentPageView;
-import com.github.pettyfer.caas.engine.model.ListQueryParams;
-import com.github.pettyfer.caas.engine.model.Page;
+import com.github.pettyfer.caas.engine.kubernetes.model.DeploymentPageView;
+import com.github.pettyfer.caas.engine.kubernetes.model.ListQueryParams;
+import com.github.pettyfer.caas.engine.kubernetes.model.Page;
 import com.github.pettyfer.caas.common.model.R;
-import com.github.pettyfer.caas.engine.service.DeploymentService;
+import com.github.pettyfer.caas.engine.kubernetes.service.DeploymentService;
 import io.fabric8.kubernetes.api.model.apps.ReplicaSetList;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.swagger.annotations.Api;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Petty
  */
 @RestController
-@RequestMapping("/api/v1/deployment")
+@RequestMapping("/api/v1/kubernetes/deployment")
 @Api(value = "Deployment Api", tags = {"Deployment Api"})
 public class DeploymentApiController {
 

@@ -1,4 +1,4 @@
-package com.github.pettyfer.caas.engine.event;
+package com.github.pettyfer.caas.engine.kubernetes.event;
 
 import org.springframework.context.ApplicationEvent;
 

@@ -2,6 +2,7 @@ package com.github.pettyfer.caas.system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.pettyfer.caas.system.entity.SystemGlobalConfiguration;
+import com.github.pettyfer.caas.system.model.GlobalConfiguration;
 
 /**
  * <p>
@@ -34,5 +35,11 @@ public interface ISystemGlobalConfigurationService extends IService<SystemGlobal
      * @return Boolean
      */
     Boolean update(SystemGlobalConfiguration systemGlobalConfiguration);
+
+    /**
+     * 加载用户配置
+     * @return GlobalConfiguration
+     */
+    GlobalConfiguration loadConfig();
 
 }

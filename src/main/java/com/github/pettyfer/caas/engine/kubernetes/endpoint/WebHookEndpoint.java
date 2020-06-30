@@ -1,6 +1,6 @@
-package com.github.pettyfer.caas.engine.endpoint;
+package com.github.pettyfer.caas.engine.kubernetes.endpoint;
 
-import com.github.pettyfer.caas.engine.event.publisher.GitlabPushEventPublisher;
+import com.github.pettyfer.caas.engine.kubernetes.event.publisher.GitlabPushEventPublisher;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;

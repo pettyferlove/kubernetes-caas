@@ -1,4 +1,4 @@
-package com.github.pettyfer.caas.engine.event;
+package com.github.pettyfer.caas.engine.kubernetes.event;
 
 /**
  * @author admin

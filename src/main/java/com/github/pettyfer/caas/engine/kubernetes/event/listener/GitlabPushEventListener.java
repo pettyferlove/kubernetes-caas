@@ -1,6 +1,6 @@
-package com.github.pettyfer.caas.engine.event.listener;
+package com.github.pettyfer.caas.engine.kubernetes.event.listener;
 
-import com.github.pettyfer.caas.engine.event.GitlabPushEvent;
+import com.github.pettyfer.caas.engine.kubernetes.event.GitlabPushEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 

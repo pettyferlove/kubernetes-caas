@@ -6,6 +6,7 @@
     <resultMap id="BaseResultMap" type="com.github.pettyfer.caas.system.entity.SystemGlobalConfiguration">
         <id column="id" property="id" />
         <result column="gitlab_home_path" property="gitlabHomePath" />
+        <result column="gitlab_api_token" property="gitlabApiToken" />
         <result column="docker_host" property="dockerHost" />
         <result column="workspace" property="workspace" />
         <result column="docker_registry_path" property="dockerRegistryPath" />
@@ -22,7 +23,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, gitlab_home_path, docker_host, workspace, docker_registry_path, docker_registry_project, docker_registry_username, docker_registry_password, maven_home, del_flag, creator, create_time, modifier, modify_time
+        id, gitlab_home_path, gitlab_api_token, docker_host, workspace, docker_registry_path, docker_registry_project, docker_registry_username, docker_registry_password, maven_home, del_flag, creator, create_time, modifier, modify_time
     </sql>
 
 </mapper>

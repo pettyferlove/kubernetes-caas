@@ -1,11 +1,11 @@
-package com.github.pettyfer.caas.engine.restful;
+package com.github.pettyfer.caas.engine.kubernetes.restful;
 
-import com.github.pettyfer.caas.engine.model.ListQueryParams;
-import com.github.pettyfer.caas.engine.model.NamespaceDetailView;
-import com.github.pettyfer.caas.engine.model.NamespacePageView;
-import com.github.pettyfer.caas.engine.model.Page;
+import com.github.pettyfer.caas.engine.kubernetes.model.ListQueryParams;
+import com.github.pettyfer.caas.engine.kubernetes.model.NamespaceDetailView;
+import com.github.pettyfer.caas.engine.kubernetes.model.NamespacePageView;
+import com.github.pettyfer.caas.engine.kubernetes.model.Page;
 import com.github.pettyfer.caas.common.model.*;
-import com.github.pettyfer.caas.engine.service.NamespaceService;
+import com.github.pettyfer.caas.engine.kubernetes.service.NamespaceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -18,7 +18,7 @@ import java.util.List;
  * @author Petty
  */
 @RestController
-@RequestMapping("/api/v1/namespace")
+@RequestMapping("/api/v1/kubernetes/namespace")
 @Api(value = "Namespace Api", tags = {"Namespace Api"})
 public class NamespaceApiController {
 

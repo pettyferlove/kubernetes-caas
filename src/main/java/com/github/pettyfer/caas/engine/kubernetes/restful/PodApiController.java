@@ -1,4 +1,4 @@
-package com.github.pettyfer.caas.engine.restful;
+package com.github.pettyfer.caas.engine.kubernetes.restful;
 
 import io.fabric8.kubernetes.client.KubernetesClient;
 import lombok.SneakyThrows;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Petty
  */
 @RestController
-@RequestMapping("/api/v1/pod")
+@RequestMapping("/api/v1/kubernetes/pod")
 public class PodApiController {
 
     private final KubernetesClient kubernetesClient;

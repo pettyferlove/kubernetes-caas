@@ -47,6 +47,9 @@ public class SystemGlobalConfiguration extends Model<SystemGlobalConfiguration> 
     @ApiModelProperty(value = "gitlab地址")
     private String gitlabHomePath;
 
+    @ApiModelProperty(value = "gitlab api token")
+    private String gitlabApiToken;
+
     @ApiModelProperty(value = "docker主机地址")
     private String dockerHost;
 

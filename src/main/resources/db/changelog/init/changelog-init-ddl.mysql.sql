@@ -32,3 +32,7 @@ alter table system_global_configuration
 alter table system_global_configuration
 	add modify_time datetime null comment '修改时间';
 
+--changeset Petty:caas-init-ddl-3
+alter table system_global_configuration
+	add gitlab_api_token varchar(128) null comment 'Gitlab令牌';
+
