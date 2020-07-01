@@ -1,8 +1,8 @@
-package com.github.pettyfer.caas.engine.register.service;
+package com.github.pettyfer.caas.engine.docker.register.service;
 
 
-import com.github.pettyfer.caas.engine.register.model.RepositoryTagView;
-import com.github.pettyfer.caas.engine.register.model.RepositoryView;
+import com.github.pettyfer.caas.engine.docker.register.model.RepositoryTagView;
+import com.github.pettyfer.caas.engine.docker.register.model.RepositoryView;
 
 import java.util.List;
 

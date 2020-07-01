@@ -1,4 +1,4 @@
-package com.github.pettyfer.caas.engine.register.model;
+package com.github.pettyfer.caas.engine.docker.register.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;

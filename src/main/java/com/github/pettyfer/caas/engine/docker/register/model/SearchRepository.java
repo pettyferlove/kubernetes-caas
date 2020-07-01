@@ -1,4 +1,4 @@
-package com.github.pettyfer.caas.engine.register.model;
+package com.github.pettyfer.caas.engine.docker.register.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
