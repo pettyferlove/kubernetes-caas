@@ -2,6 +2,7 @@ package com.github.pettyfer.caas;
 
 import lombok.SneakyThrows;
 import org.gitlab.api.GitlabAPI;
+import org.gitlab.api.models.GitlabNamespace;
 import org.gitlab.api.models.GitlabProject;
 import org.gitlab.api.models.GitlabProjectHook;
 import org.junit.jupiter.api.Test;
