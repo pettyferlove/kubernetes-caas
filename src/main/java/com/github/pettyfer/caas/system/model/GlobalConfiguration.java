@@ -21,6 +21,8 @@ public class GlobalConfiguration implements Serializable {
 
     private String gitlabHomePath;
 
+    private String gitlabApiToken;
+
     private String dockerHost;
 
     private String workspace;

@@ -1,4 +1,4 @@
-package com.github.pettyfer.caas.engine.kubernetes.model;
+package com.github.pettyfer.caas.common.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

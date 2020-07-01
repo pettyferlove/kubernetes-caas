@@ -2,7 +2,7 @@ package com.github.pettyfer.caas.engine.kubernetes.service.impl;
 
 import com.github.pettyfer.caas.engine.kubernetes.model.DeploymentPageView;
 import com.github.pettyfer.caas.engine.kubernetes.model.ListQueryParams;
-import com.github.pettyfer.caas.engine.kubernetes.model.Page;
+import com.github.pettyfer.caas.common.model.Page;
 import com.github.pettyfer.caas.engine.kubernetes.service.DeploymentService;
 import io.fabric8.kubernetes.api.model.Container;
 import io.fabric8.kubernetes.api.model.apps.DeploymentList;

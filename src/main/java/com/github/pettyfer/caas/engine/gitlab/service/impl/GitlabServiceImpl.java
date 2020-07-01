@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Petty
@@ -32,14 +33,26 @@ public class GitlabServiceImpl implements IGitlabService {
 
     @Override
     public List<GitlabProjectView> queryAllProjects() {
-        /*GlobalConfiguration globalConfiguration = globalConfigurationService.loadConfig();
+        GlobalConfiguration globalConfiguration = globalConfigurationService.loadConfig();
         Preconditions.checkNotNull(globalConfiguration.getGitlabHomePath(), "未配置Gitlab地址");
-        Preconditions.checkNotNull(globalConfiguration.getGitlabApiToken(), "未配置Gitlab Api Token");;*/
+        Preconditions.checkNotNull(globalConfiguration.getGitlabApiToken(), "未配置Gitlab Api Token");
         GitlabAPI connect = GitlabAPI.connect(globalConfiguration.getGitlabHomePath(), globalConfiguration.getGitlabApiToken());
-        connect.getAllProjects()
-        GitlabProject gitlabProject = new GitlabProject();
-        System.out.println(ConverterUtil.convert(gitlabProject, new GitlabProjectView()));
-        return new ArrayList<>();
+        List<GitlabProject> allProjects = connect.getProjects();
+        return allProjects.stream().map(i -> GitlabProjectView.builder()
+                .id(i.getId())
+                .name(i.getName())
+                .nameWithNamespace(i.getNameWithNamespace())
+                .description(i.getDescription())
+                .defaultBranch(i.getDefaultBranch())
+                .path(i.getPath())
+                .pathWithNamespace(i.getPathWithNamespace())
+                .createdAt(i.getCreatedAt())
+                .sshUrl(i.getSshUrl())
+                .httpUrl(i.getSshUrl())
+                .webUrl(i.getWebUrl())
+                .archived(i.isArchived())
+                .lastActivityAt(i.getLastActivityAt())
+                .build()).collect(Collectors.toList());
     }
 
     @Override

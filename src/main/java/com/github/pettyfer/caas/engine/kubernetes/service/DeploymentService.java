@@ -2,7 +2,7 @@ package com.github.pettyfer.caas.engine.kubernetes.service;
 
 import com.github.pettyfer.caas.engine.kubernetes.model.DeploymentPageView;
 import com.github.pettyfer.caas.engine.kubernetes.model.ListQueryParams;
-import com.github.pettyfer.caas.engine.kubernetes.model.Page;
+import com.github.pettyfer.caas.common.model.Page;
 
 /**
  * @author Petty

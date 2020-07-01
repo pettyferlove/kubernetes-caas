@@ -3,7 +3,7 @@ package com.github.pettyfer.caas.engine.kubernetes.restful;
 import com.github.pettyfer.caas.engine.kubernetes.model.ListQueryParams;
 import com.github.pettyfer.caas.engine.kubernetes.model.NamespaceDetailView;
 import com.github.pettyfer.caas.engine.kubernetes.model.NamespacePageView;
-import com.github.pettyfer.caas.engine.kubernetes.model.Page;
+import com.github.pettyfer.caas.common.model.Page;
 import com.github.pettyfer.caas.common.model.*;
 import com.github.pettyfer.caas.engine.kubernetes.service.NamespaceService;
 import io.swagger.annotations.Api;

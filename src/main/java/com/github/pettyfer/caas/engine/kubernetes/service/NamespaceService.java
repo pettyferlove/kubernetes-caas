@@ -3,7 +3,7 @@ package com.github.pettyfer.caas.engine.kubernetes.service;
 import com.github.pettyfer.caas.engine.kubernetes.model.ListQueryParams;
 import com.github.pettyfer.caas.engine.kubernetes.model.NamespaceDetailView;
 import com.github.pettyfer.caas.engine.kubernetes.model.NamespacePageView;
-import com.github.pettyfer.caas.engine.kubernetes.model.Page;
+import com.github.pettyfer.caas.common.model.Page;
 
 import java.util.List;
 

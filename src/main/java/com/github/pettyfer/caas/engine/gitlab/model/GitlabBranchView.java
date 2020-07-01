@@ -2,10 +2,7 @@ package com.github.pettyfer.caas.engine.gitlab.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.gitlab.api.models.GitlabBranchCommit;
 
 import java.io.Serializable;
@@ -14,6 +11,7 @@ import java.io.Serializable;
  * @author Petty
  */
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
