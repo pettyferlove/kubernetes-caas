@@ -1,4 +1,6 @@
 # 开发配置-公司环境
+logging:
+  config: classpath:conf/logback-dev.xml
 management:
   endpoints:
     web:
