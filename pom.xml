@@ -20,7 +20,7 @@
         <jdk.compile.source.version>1.8</jdk.compile.source.version>
         <jdk.compile.target.version>1.8</jdk.compile.target.version>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <liquibase.version>3.8.7</liquibase.version>
+        <liquibase.version>4.8.0</liquibase.version>
         <skipTests>true</skipTests>
     </properties>
 
